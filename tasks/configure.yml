@@ -11,3 +11,17 @@
     - configuration
     - template-configuration
     - filebeat
+
+- name: Upload SSL | filebeat
+  template:
+    src: etc/filebeat/ssl.crt
+    dest: /etc/filebeat/ssl.crt
+    owner: root
+    group: root
+    mode: 0600
+  notify: Restart Service | filebeat
+  when: filebeat_ssl_certificate is defined
+  tags:
+    - configuration
+    - template-configuration
+    - filebeat
