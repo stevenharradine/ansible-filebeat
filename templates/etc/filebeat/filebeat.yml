@@ -30,7 +30,7 @@ filebeat:
       # Possible options are:
       # * log: Reads every line of the log file (default)
       # * stdin: Reads the standard in
-      input_type: {{ filebeat_input_type }}
+      input_type: log
 
       # Optional additional fields. These field can be freely picked
       # to add additional information to the crawled log files for filtering
