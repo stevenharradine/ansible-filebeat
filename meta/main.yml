@@ -1,0 +1,17 @@
+---
+galaxy_info:
+  author: "Steven Harradine"
+  company: "TELUS digital"
+  description: "Filebeat used to ship logs to an elk stack"
+  license: ISC
+  platforms:
+    - name: Ubuntu
+      versions:
+      - lucid
+      - precise
+      - trusty
+      - utopic
+      - vivid
+  categories:
+    - web
+    - cloud
