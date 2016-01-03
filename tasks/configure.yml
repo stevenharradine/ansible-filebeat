@@ -1,1 +1,13 @@
 ---
+- name: Upload Config | filebeat
+  template:
+    src: etc/filebeat/filebeat.yml
+    dest: /etc/filebeat/filebeat.yml
+    owner: root
+    group: staff
+    mode: 0664
+  notify: Restart Service | filebeat
+  tags:
+    - configuration
+    - template-configuration
+    - filebeat
