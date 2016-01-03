@@ -30,7 +30,7 @@ filebeat:
       # Possible options are:
       # * log: Reads every line of the log file (default)
       # * stdin: Reads the standard in
-      input_type: syslog
+      input_type: {{ filebeat_input_type }}
 
       # Optional additional fields. These field can be freely picked
       # to add additional information to the crawled log files for filtering
@@ -230,7 +230,7 @@ output:
   ### Logstash as output
   logstash:
     # The Logstash hosts
-    hosts: ["192.168.1.119:5044"]
+    hosts: ["{{ filebeat_logstash_hosts }}:5044"]
 
     # Number of workers per Logstash host.
     #worker: 1
@@ -246,7 +246,7 @@ output:
     # Optional TLS. By default is off.
     tls:
       # List of root certificates for HTTPS server verifications
-      certificate_authorities: ["/etc/filebeat/ssl.crt"]
+      certificate_authorities: ["{{ filebeat_logstash_tls_certificate_authorities }}"]
 
       # Certificate for TLS client authentication
       #certificate: "/etc/pki/client/cert.pem"

@@ -1,1 +1,4 @@
 ---
+filebeat_input_type: syslog
+filebeat_logstash_hosts: 192.168.1.119
+filebeat_logstash_tls_certificate_authorities: /etc/filebeat/ssl.crt
