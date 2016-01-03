@@ -25,3 +25,6 @@
     - configuration
     - template-configuration
     - filebeat
+
+- name: start with system
+  shell: update-rc.d filebeat defaults 95 10
