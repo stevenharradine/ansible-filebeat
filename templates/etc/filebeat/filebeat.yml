@@ -13,8 +13,9 @@ filebeat:
       # For each file found under this path, a harvester is started.
       # Make sure not file is defined twice as this can lead to unexpected behaviour.
       paths:
-        - /var/log/syslog
         - /var/log/auth.log
+        - /var/log/syslog
+      # - c:\programdata\elasticsearch\logs\*
 
       # Configure the file encoding for reading files with international characters
       # following the W3C recommendation for HTML5 (http://www.w3.org/TR/encoding).
@@ -29,28 +30,28 @@ filebeat:
       # Possible options are:
       # * log: Reads every line of the log file (default)
       # * stdin: Reads the standard in
-      input_type: log
+      input_type: syslog
 
       # Optional additional fields. These field can be freely picked
       # to add additional information to the crawled log files for filtering
       #fields:
       #  level: debug
-      #  review: 1                                                                                                                                                                                                               
-                                                                                                                                                                                                                                 
-      # Set to true to store the additional fields as top level fields instead                                                                                                                                                   
-      # of under the "fields" sub-dictionary. In case of name conflicts with the                                                                                                                                                 
-      # fields added by Filebeat itself, the custom fields overwrite the default                                                                                                                                                 
-      # fields.                                                                                                                                                                                                                  
-      #fields_under_root: false                                                                                                                                                                                                  
-                                                                                                                                                                                                                                 
-      # Ignore files which were modified more then the defined timespan in the past                                                                                                                                              
-      # Time strings like 2h (2 hours), 5m (5 minutes) can be used.                                                                                                                                                              
-      #ignore_older: 24h                                                                                                                                                                                                         
-                                                                                                                                                                                                                                 
-      # Type to be published in the 'type' field. For Elasticsearch output,                                                                                                                                                      
-      # the type defines the document type these entries should be stored                                                                                                                                                        
-      # in. Default: log                                                                                                                                                                                                         
-      document_type: syslog                                                                                                                                                                                                      
+      #  review: 1
+
+      # Set to true to store the additional fields as top level fields instead
+      # of under the "fields" sub-dictionary. In case of name conflicts with the
+      # fields added by Filebeat itself, the custom fields overwrite the default
+      # fields.
+      #fields_under_root: false
+
+      # Ignore files which were modified more then the defined timespan in the past
+      # Time strings like 2h (2 hours), 5m (5 minutes) can be used.
+      #ignore_older: 24h
+
+      # Type to be published in the 'type' field. For Elasticsearch output,
+      # the type defines the document type these entries should be stored
+      # in. Default: log
+      #document_type: log
 
       # Scan frequency in seconds.
       # How often these files should be checked for changes. In case it is set
